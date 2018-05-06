@@ -1,0 +1,6 @@
+﻿1>------ Build started: Project: Model, Configuration: Debug Any CPU ------
+1>c:\users\john\documents\visual studio 2015\Projects\Model\Model\Class3.cs(13,23,13,24): warning CS0649: Field 'capacitiveElement.f' is never assigned to, and will always have its default value 0
+1>  Model -> c:\users\john\documents\visual studio 2015\Projects\Model\Model\bin\Debug\Model.dll
+2>------ Build started: Project: ConsoleApplication1, Configuration: Debug Any CPU ------
+2>  ConsoleApplication1 -> c:\Users\John\documents\visual studio 2015\Projects\Model\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+========== Build: 2 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

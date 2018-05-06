@@ -1,0 +1,46 @@
+c:\Users\John\documents\visual studio 2015\Projects\Model\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+c:\Users\John\documents\visual studio 2015\Projects\Model\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+c:\Users\John\documents\visual studio 2015\Projects\Model\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+c:\Users\John\documents\visual studio 2015\Projects\Model\ConsoleApplication1\bin\Debug\Model.dll
+c:\Users\John\documents\visual studio 2015\Projects\Model\ConsoleApplication1\bin\Debug\Model.pdb
+c:\Users\John\documents\visual studio 2015\Projects\Model\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+c:\Users\John\documents\visual studio 2015\Projects\Model\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+c:\Users\John\documents\visual studio 2015\Projects\Model\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\5152_nvs\Desktop\12345\Model\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\5152_nvs\Desktop\12345\Model\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\5152_nvs\Desktop\12345\Model\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\5152_nvs\Desktop\12345\Model\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\5152_nvs\Desktop\12345\Model\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\5152_nvs\Desktop\12345\Model\ConsoleApplication1\bin\Debug\Model.dll
+C:\Users\5152_nvs\Desktop\12345\Model\ConsoleApplication1\bin\Debug\Model.pdb
+C:\Users\5152_nvs\Desktop\12345\Model\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\Visual Studio 2015\Projects\12345\Model\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\John\Documents\Visual Studio 2015\Projects\12345\Model\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\John\Documents\Visual Studio 2015\Projects\12345\Model\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\John\Documents\Visual Studio 2015\Projects\12345\Model\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\John\Documents\Visual Studio 2015\Projects\12345\Model\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\John\Documents\Visual Studio 2015\Projects\12345\Model\ConsoleApplication1\bin\Debug\Model.dll
+C:\Users\John\Documents\Visual Studio 2015\Projects\12345\Model\ConsoleApplication1\bin\Debug\Model.pdb
+C:\Users\John\Documents\Visual Studio 2015\Projects\12345\Model\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\krat5\Desktop\321\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\krat5\Desktop\321\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\krat5\Desktop\321\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\John\Desktop\СПО\ЛабыСПО\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\John\Desktop\СПО\ЛабыСПО\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\John\Desktop\СПО\ЛабыСПО\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\John\Desktop\СПО\ЛабыСПО\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\John\Desktop\СПО\ЛабыСПО\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\John\Desktop\СПО\ЛабыСПО\ConsoleApplication1\bin\Debug\Model.dll
+C:\Users\John\Desktop\СПО\ЛабыСПО\ConsoleApplication1\bin\Debug\Model.pdb
+C:\Users\John\Desktop\СПО\ЛабыСПО\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\John\Desktop\ЛабыСПО\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\John\Desktop\ЛабыСПО\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\John\Desktop\ЛабыСПО\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\John\Desktop\random\ЛабыСПО\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\John\Desktop\random\ЛабыСПО\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\John\Desktop\random\ЛабыСПО\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\John\Desktop\random\ЛабыСПО\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\John\Desktop\random\ЛабыСПО\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\John\Desktop\random\ЛабыСПО\ConsoleApplication1\bin\Debug\Model.dll
+C:\Users\John\Desktop\random\ЛабыСПО\ConsoleApplication1\bin\Debug\Model.pdb
+C:\Users\John\Desktop\random\ЛабыСПО\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
