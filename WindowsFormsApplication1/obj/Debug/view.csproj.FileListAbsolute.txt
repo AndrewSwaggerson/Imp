@@ -26,3 +26,17 @@ C:\Users\John\Desktop\СПО\ЛАБЫ\ЛабыСПО\WindowsFormsApplication1\bi
 C:\Users\John\Desktop\СПО\ЛАБЫ\ЛабыСПО\WindowsFormsApplication1\bin\Debug\Model.pdb
 C:\Users\John\Desktop\СПО\ЛАБЫ\ЛабыСПО\WindowsFormsApplication1\bin\Debug\Newtonsoft.Json.xml
 C:\Users\John\Desktop\СПО\ЛАБЫ\ЛабыСПО\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ElementInfoForm.resources
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\bin\Debug\Model.dll
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\bin\Debug\Model.pdb
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\obj\Debug\view.csprojResolveAssemblyReference.cache
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ElementInfoForm.resources
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ListForm.resources
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\John\Desktop\SPO\main\imp\WindowsFormsApplication1\obj\Debug\view.csproj.GenerateResource.Cache

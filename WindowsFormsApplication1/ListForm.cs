@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Model; 
+using Model;
 using System.Numerics;
-using System.IO;
 
 namespace WindowsFormsApplication1
 {
@@ -24,6 +25,7 @@ namespace WindowsFormsApplication1
         }
 
         #region Serialize
+
         //создание экземпляра JsonSerializer
         JsonSerializer serializer = new JsonSerializer()
         {
@@ -32,7 +34,7 @@ namespace WindowsFormsApplication1
             NullValueHandling = NullValueHandling.Include
         };
 
-        //Сериализация https://www.newtonsoft.com/json/help/html/SerializingJSON.htm
+        //Сериализация 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (ElementList.listElement.Count == 0)
@@ -77,31 +79,64 @@ namespace WindowsFormsApplication1
 
         #region Button's
         //Описание кнопки расчета импеданса
+
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
-            int CalculateRowIndex = dataGridViewList.CurrentCell.RowIndex;
-            IElement element = ElementList.listElement[CalculateRowIndex];
-
-            if ((textBoxFrequency.Text == "") && !(element is Model.Resistor))
+            if (textBoxFrequency.Text == "")
             {
                 MessageBox.Show("Введите частоту");
-            }                                                                         
-                                                                                      // if text == "" && is not resistor -> vvedite freq;  if is resistor && text != "" -> freq ne nujen, prosto calc
-            else if ((element is Model.Resistor) && (textBoxFrequency.Text != ""))    //MessageBox.Show(Convert.ToString(element.GetImpedance(Convert.ToDouble(textBoxFrequency.Text))));
-            {
-                MessageBox.Show("Импеданс для резистора считается без учёта частоты");
             }
-
-            else if ((element is Model.Resistor) && (textBoxFrequency.Text == ""))
-            {
-                dataGridViewList[2, CalculateRowIndex].Value = element.GetImpedance(0);
-            }
-
             else
             {
-                dataGridViewList[2, CalculateRowIndex].Value = element.GetImpedance(Convert.ToDouble(textBoxFrequency.Text));
+                double freq = Convert.ToDouble(textBoxFrequency.Text);
+                if (freq < 0)
+                {
+                    MessageBox.Show("Введите положительную частоту");
+                }
+                else if (this.dataGridViewList.Rows.Count < 2)
+                {
+                    MessageBox.Show("Список пуст");
+                }
+                else
+                {
+                    for (int i = 0; i < this.dataGridViewList.Rows.Count - 1; i++)
+                    {
+                        IElement element = ElementList.listElement[i];
+                        this.dataGridViewList.Rows[i].Cells[2].Value =
+                            Convert.ToString(element.GetImpedance(Convert.ToDouble(textBoxFrequency.Text)));
+                    }
+                }
             }
         }
+
+        #region поэлементный расчет импеданса
+        ////Описание кнопки расчета импеданса
+        //private void buttonCalculate_Click(object sender, EventArgs e)
+        //{
+        //    int CalculateRowIndex = dataGridViewList.CurrentCell.RowIndex;
+        //    IElement element = ElementList.listElement[CalculateRowIndex];
+
+        //    if ((textBoxFrequency.Text == "") && !(element is Model.Resistor))
+        //    {
+        //        MessageBox.Show("Введите частоту");
+        //    }                                                                         
+
+        //    else if ((element is Model.Resistor) && (textBoxFrequency.Text != ""))    
+        //    {
+        //        MessageBox.Show("Импеданс для резистора считается без учёта частоты");
+        //    }
+
+        //    else if ((element is Model.Resistor) && (textBoxFrequency.Text == ""))
+        //    {
+        //        dataGridViewList[2, CalculateRowIndex].Value = element.GetImpedance(0);
+        //    }
+
+        //    else
+        //    {
+        //        dataGridViewList[2, CalculateRowIndex].Value = element.GetImpedance(Convert.ToDouble(textBoxFrequency.Text));
+        //    }
+        //}
+        #endregion
 
         //Описание кнопки добавления элемента
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -155,5 +190,6 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
+
     }
 }

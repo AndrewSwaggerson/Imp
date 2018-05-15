@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Numerics;
 
 namespace Model
@@ -21,7 +22,7 @@ namespace Model
         /// описание свойства имени
         /// </summary>
         public string Name { get; set; }
-
+       
         /// <summary>
         /// описание свойства значения
         /// </summary>

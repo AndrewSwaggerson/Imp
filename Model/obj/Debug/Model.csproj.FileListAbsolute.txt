@@ -28,3 +28,8 @@ C:\Users\John\Desktop\СПО\ЛАБЫ\ЛабыСПО\Model\bin\Debug\Model.pdb
 C:\Users\John\Desktop\СПО\ЛАБЫ\ЛабыСПО\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\Users\John\Desktop\СПО\ЛАБЫ\ЛабыСПО\Model\obj\Debug\Model.dll
 C:\Users\John\Desktop\СПО\ЛАБЫ\ЛабыСПО\Model\obj\Debug\Model.pdb
+C:\Users\John\Desktop\SPO\main\imp\Model\bin\Debug\Model.dll
+C:\Users\John\Desktop\SPO\main\imp\Model\bin\Debug\Model.pdb
+C:\Users\John\Desktop\SPO\main\imp\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\John\Desktop\SPO\main\imp\Model\obj\Debug\Model.dll
+C:\Users\John\Desktop\SPO\main\imp\Model\obj\Debug\Model.pdb
