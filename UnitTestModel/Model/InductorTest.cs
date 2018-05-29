@@ -32,31 +32,9 @@ namespace UnitTestModel.Model
 
         [Test]
         [TestCase(-2.2, typeof(ArgumentException), TestName = "Тестирование при попытке присвоить отрицательное значение")]
-        public void NegativeValue(double value, Type expectedException)
-        {
-            var indValue = new Inductor();
-            Assert.Throws(expectedException, () => indValue.Value = value);
-        }
-
-        [Test]
+        [TestCase(Double.PositiveInfinity, typeof(ArgumentException), TestName = "Тестирование при попытке присвоить PositiveInfinity")]
         [TestCase(Double.NaN, typeof(ArgumentException), TestName = "Тестирование при попытке присвоить NaN")]
         public void NanValue(double value, Type expectedException)
-        {
-            var indValue = new Inductor();
-            Assert.Throws(expectedException, () => indValue.Value = value);
-        }
-
-        [Test]
-        [TestCase(Double.PositiveInfinity, typeof(ArgumentException), TestName = "Тестирование при попытке присвоить PositiveInfinity")]
-        public void positiveInfinityValue(double value, Type expectedException)
-        {
-            var indValue = new Inductor();
-            Assert.Throws(expectedException, () => indValue.Value = value);
-        }
-
-        [Test]
-        [TestCase(Double.NegativeInfinity, typeof(ArgumentException), TestName = "Тестирование при попытке присвоить NegativeInfinity")]
-        public void negativeInfinityValue(double value, Type expectedException)
         {
             var indValue = new Inductor();
             Assert.Throws(expectedException, () => indValue.Value = value);

@@ -18,11 +18,119 @@ namespace WindowsFormsApplication1
 {
     public partial class ListForm : Form
     {
+
+        private ObjectControl listElementControl = new ObjectControl();
+
         public ListForm()
         {
             InitializeComponent();
-            CenterToScreen();
+            listElementControl.Parent = elementInfoGroupBox;
+            listElementControl.Location = new Point(2, 2);
+            listElementControl.Size = new Size(325, 90);
+            listElementControl.readOnly = true;
+            listElementControl.Enabled = false;
+
+            if (ElementList.listElement.Count != 0)
+            {
+
+                listElementControl.elementControl = ElementList.listElement[dataGridViewList.SelectedCells[0].RowIndex];
+            }
         }
+
+        private void dataGridViewList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewCell cell = dataGridViewList.CurrentCell;
+            int index = cell.RowIndex;
+            listElementControl.elementControl = ElementList.listElement[index];
+        }
+
+        #region Button's
+        
+        //Описание кнопки добавления элемента
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            
+                ElementInfoForm Form1 = new ElementInfoForm();
+            if (Form1.ShowDialog() == DialogResult.OK)
+            {
+                var element = Form1.Element;
+                this.dataGridViewList.Rows.Add(element.Name, element.Value);
+                ElementList.listElement.Add(element);
+                listElementControl.elementControl = element;//ElementList.listElement[dataGridViewList.SelectedCells[0].RowIndex-1]; 
+            }      
+        }
+        
+        //Описание кнопки удаления
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            int removeIndex = dataGridViewList.CurrentCell.RowIndex;
+            if (dataGridViewList.Rows.Count == 0)
+            {
+                MessageBox.Show("Список пуст");
+            }
+            dataGridViewList.Rows.RemoveAt(removeIndex);
+            ElementList.listElement.RemoveAt(removeIndex);
+        }
+
+        //Описание кнопки изменения данных через calculateform
+        private void buttonModify_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewList.Rows.Count == 0)
+            {
+                MessageBox.Show("Список пуст");
+            }
+            else
+            {
+                ElementInfoForm ModifyForm = new ElementInfoForm();
+                int ModifyIndex = dataGridViewList.CurrentCell.RowIndex;
+                ModifyForm.Element = ElementList.listElement[ModifyIndex];
+                if (ModifyForm.ShowDialog() == DialogResult.OK)
+                {
+                    var newElement = ModifyForm.Element;
+                    ElementList.listElement.Insert(dataGridViewList.SelectedCells[0].RowIndex, newElement);
+                    ElementList.listElement.RemoveAt(dataGridViewList.SelectedCells[0].RowIndex + 1);
+                    dataGridViewList.Rows.Clear();
+                    foreach (var data in ElementList.listElement)
+                    {
+                        dataGridViewList.Rows.Add(data.Name, data.Value);
+                    }                                 
+                }   
+            }
+        }
+
+        //Описание кнопки расчета импеданса
+
+        private void buttonCalculate_Click(object sender, EventArgs e)
+        {
+            if (textBoxFrequency.Text == "")
+            {
+                MessageBox.Show("Введите частоту");
+            }
+            else
+            {
+                double freq = Convert.ToDouble(textBoxFrequency.Text);
+                if (freq < 0)
+                {
+                    MessageBox.Show("Введите положительную частоту");
+                }
+                else if (this.dataGridViewList.Rows.Count < 2)
+                {
+                    MessageBox.Show("Список пуст");
+                }
+                else
+                {
+                    for (int i = 0; i < this.dataGridViewList.Rows.Count; i++)
+                    {
+                        IElement element = ElementList.listElement[i];
+                        this.dataGridViewList.Rows[i].Cells[2].Value =
+                            Convert.ToString(element.GetImpedance(Convert.ToDouble(textBoxFrequency.Text)));
+                    }
+                }
+            }
+        }
+
+        #endregion
+
 
         #region Serialize
 
@@ -65,131 +173,16 @@ namespace WindowsFormsApplication1
                 using (StreamReader sr = new StreamReader(openFile.FileName))
                 using (JsonReader jr = new JsonTextReader(sr))
                 {
-                    ElementList.listElement = (List<IElement>) serializer.Deserialize(jr, typeof(List<IElement>));
-                    dataGridViewList.Rows.Clear();
-                    foreach(var data in ElementList.listElement)
-                    {
-                        dataGridViewList.Rows.Add(data.Name, data.Value);
-                    }
-                }
-            }
-        }
-
-        #endregion
-
-        #region Button's
-        //Описание кнопки расчета импеданса
-
-        private void buttonCalculate_Click(object sender, EventArgs e)
-        {
-            if (textBoxFrequency.Text == "")
-            {
-                MessageBox.Show("Введите частоту");
-            }
-            else
-            {
-                double freq = Convert.ToDouble(textBoxFrequency.Text);
-                if (freq < 0)
-                {
-                    MessageBox.Show("Введите положительную частоту");
-                }
-                else if (this.dataGridViewList.Rows.Count < 2)
-                {
-                    MessageBox.Show("Список пуст");
-                }
-                else
-                {
-                    for (int i = 0; i < this.dataGridViewList.Rows.Count - 1; i++)
-                    {
-                        IElement element = ElementList.listElement[i];
-                        this.dataGridViewList.Rows[i].Cells[2].Value =
-                            Convert.ToString(element.GetImpedance(Convert.ToDouble(textBoxFrequency.Text)));
-                    }
-                }
-            }
-        }
-
-        #region поэлементный расчет импеданса
-        ////Описание кнопки расчета импеданса
-        //private void buttonCalculate_Click(object sender, EventArgs e)
-        //{
-        //    int CalculateRowIndex = dataGridViewList.CurrentCell.RowIndex;
-        //    IElement element = ElementList.listElement[CalculateRowIndex];
-
-        //    if ((textBoxFrequency.Text == "") && !(element is Model.Resistor))
-        //    {
-        //        MessageBox.Show("Введите частоту");
-        //    }                                                                         
-
-        //    else if ((element is Model.Resistor) && (textBoxFrequency.Text != ""))    
-        //    {
-        //        MessageBox.Show("Импеданс для резистора считается без учёта частоты");
-        //    }
-
-        //    else if ((element is Model.Resistor) && (textBoxFrequency.Text == ""))
-        //    {
-        //        dataGridViewList[2, CalculateRowIndex].Value = element.GetImpedance(0);
-        //    }
-
-        //    else
-        //    {
-        //        dataGridViewList[2, CalculateRowIndex].Value = element.GetImpedance(Convert.ToDouble(textBoxFrequency.Text));
-        //    }
-        //}
-        #endregion
-
-        //Описание кнопки добавления элемента
-        private void buttonAdd_Click(object sender, EventArgs e)
-        {
-            
-                ElementInfoForm Form1 = new ElementInfoForm();
-            if (Form1.ShowDialog() == DialogResult.OK)
-            {
-                var element = Form1.Element;
-                this.dataGridViewList.Rows.Add(element.Name, element.Value);
-                ElementList.listElement.Add(element);
-            }      
-        }
-        
-        //Описание кнопки удаления
-        private void buttonRemove_Click(object sender, EventArgs e)
-        {
-            int removeIndex = dataGridViewList.CurrentCell.RowIndex;
-            if (dataGridViewList.Rows.Count == 0)
-            {
-                MessageBox.Show("Список пуст");
-            }
-            dataGridViewList.Rows.RemoveAt(removeIndex);
-            ElementList.listElement.RemoveAt(removeIndex);
-        }
-
-        //Описание кнопки изменения данных через calculateform
-        private void buttonModify_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewList.Rows.Count == 0)
-            {
-                MessageBox.Show("Список пуст");
-            }
-            else
-            {
-                ElementInfoForm ModifyForm = new ElementInfoForm();
-                int ModifyIndex = dataGridViewList.CurrentCell.RowIndex;
-                ModifyForm.Element = ElementList.listElement[ModifyIndex];
-                if (ModifyForm.ShowDialog() == DialogResult.OK)
-                {
-                    var newElement = ModifyForm.Element;
-                    ElementList.listElement.Insert(dataGridViewList.SelectedCells[0].RowIndex, newElement);
-                    ElementList.listElement.RemoveAt(dataGridViewList.SelectedCells[0].RowIndex + 1);
+                    ElementList.listElement = (List<IElement>)serializer.Deserialize(jr, typeof(List<IElement>));
                     dataGridViewList.Rows.Clear();
                     foreach (var data in ElementList.listElement)
                     {
                         dataGridViewList.Rows.Add(data.Name, data.Value);
-                    }                                 
-                }   
+                    }
+                }
             }
         }
 
         #endregion
-
     }
 }

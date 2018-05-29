@@ -16,58 +16,29 @@ namespace WindowsFormsApplication1
     public partial class ElementInfoForm : Form
     {
 
+        #region forms
+        private ObjectControl elementControl = new ObjectControl();
+        public IElement Element;
+
+        //add
         public ElementInfoForm()
         {
             InitializeComponent();
-            CenterToScreen();
+        
+            elementControl.Parent = elementInfoGroupBox;            
+            elementControl.Location = new Point(2, 2);
+            elementControl.Size = new Size(325, 90);
+            elementControl.readOnly = false;
         }
-
-        #region _masked сheck
-        //проверка заполнения строк
-        private bool _maskedName = false;
-        private bool _maskedValue = false;
-
-        #endregion
-
-        #region Element
-
-        private IElement _element;
-
-        //Описание данных элемента
-        public IElement Element
+        
+        //modify
+        public ElementInfoForm(int rowNumber, ElementList list)
         {
-            get
-            {
-                if (radioButtonInductor.Checked)
-                {
-                    var Inductor = new Model.Inductor();
-                    Inductor.Name = Convert.ToString(textBoxName.Text);
-                    Inductor.Value = Convert.ToDouble(textBoxValue.Text);
-                    _element = Inductor;
-                }
-                else if (radioButtonResistor.Checked)
-                {
-                    var Resistor = new Model.Resistor();
-                    Resistor.Name = Convert.ToString(textBoxName.Text);
-                    Resistor.Value = Convert.ToDouble(textBoxValue.Text);
-                    _element = Resistor;
-                }
-                else if (radioButtonCapacitor.Checked)
-                {
-                    var Capacitor = new Model.Capacitor();
-                    Capacitor.Name = Convert.ToString(textBoxName.Text);
-                    Capacitor.Value = Convert.ToDouble(textBoxValue.Text);
-                    _element = Capacitor;
-                }
-                return _element;
-            }
-
-            set
-            {
-                _element = value;
-                textBoxName.Text = Convert.ToString(value.Name);
-                textBoxValue.Text = Convert.ToString(value.Value);
-            }
+            InitializeComponent();
+            elementControl.Parent = elementInfoGroupBox;
+            elementControl.Location = new Point(2, 2);
+            elementControl.Size = new Size(325, 90);
+            elementControl.readOnly = true;
         }
         #endregion
 
@@ -75,6 +46,7 @@ namespace WindowsFormsApplication1
         // кнопка отмены 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            Element = null;
             this.DialogResult = DialogResult.Cancel;
             Close();
         }
@@ -82,21 +54,9 @@ namespace WindowsFormsApplication1
         // кнопка ОК
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            bool a = false;
-            if ((textBoxName.Text != "") || (textBoxValue.Text != ""))
-            {
-                a = true;
-            }
-
-            if(!(_maskedName && _maskedValue) && !(a))
-            {
-                MessageBox.Show("Введите навзание элемента и его значение");
-            }
-            if(a)
-            {
+                Element = elementControl.elementControl;
                 this.DialogResult = DialogResult.OK;
                 Close();
-            }
         }
 
        

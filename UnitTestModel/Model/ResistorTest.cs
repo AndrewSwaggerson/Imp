@@ -29,38 +29,8 @@ namespace UnitTestModel.Model
         }
         
         [Test]
-        [TestCase(-2.2, typeof(ArgumentException), TestName = "Тестирование при попытке присвоить отрицательное значение")]
-        public void NegativeValue(double value, Type expectedException)
-        {
-            var resValue = new Resistor();
-            Assert.Throws(expectedException, () => resValue.Value = value);           
-        }
-
-        [Test]
         [TestCase(Double.NaN, typeof(ArgumentException), TestName = "Тестирование при попытке присвоить NaN")]
-        public void NanValue(double value, Type expectedException)
-        {
-            var resValue = new Resistor();
-            Assert.Throws(expectedException, () => resValue.Value = value);
-        }
-
-        [Test]
         [TestCase(Double.PositiveInfinity, typeof(ArgumentException), TestName = "Тестирование при попытке присвоить PositiveInfinity")]
-        public void positiveInfinityValue(double value, Type expectedException)
-        {
-            var resValue = new Resistor();
-            Assert.Throws(expectedException, () => resValue.Value = value);
-        }
-
-        [Test]
-        [TestCase(Double.NegativeInfinity, typeof(ArgumentException), TestName = "Тестирование при попытке присвоить NegativeInfinity")]
-        public void negativeInfinityValue(double value, Type expectedException)
-        {
-            var resValue = new Resistor();
-            Assert.Throws(expectedException, () => resValue.Value = value);
-        }
-
-        [Test]
         [TestCase(Double.PositiveInfinity, typeof(ArgumentException), TestName = "Тестирование при попытке присвоить PositiveInfinity")]
         public void PositiveinfinityValue(double value, Type expectedException)
         {
